@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'contact',
     'login',
     'dashboard',
+    'pegawai',
+    'anggota',
+    'simpan',
+    'pinjam',
 ]
 
 MIDDLEWARE = [

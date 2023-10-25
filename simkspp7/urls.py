@@ -9,4 +9,8 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('login/',include('login.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('pegawai/', include('pegawai.urls')),
+    path('anggota/', include('anggota.urls')),
+    path('simpan/', include('simpan.urls')),
+    path('pinjam/', include('pinjam.urls')),
 ]
