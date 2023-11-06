@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM KSP</title>
+</head>
+
+<body>  
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'postanggota' %}" method="post">
+        {% csrf_token %}
+        <H1>FORM TAMBAH ANGGOTA</H1>
+        <P>Kode Anggota : </P>
+        <input type="text" name="kdanggota" id="kdanggota" maxlength="7" required>
+        <p>Nama Anggota : </p>
+        <input type="text" name="nmAnggota" id="nmAnggota"maxlength="255" required>
+        <p>Nomor Induk Kependudukan : </p>
+        <input type="text" name="nik" id="nik"maxlength="16" required>
+        <p>Tanggal Lahir : </p>
+        <input type="date" name="tglLahir" id="tglLahir" required>
+        <p>Agama : </p>
+        <input type="text" name="agama" id="agama"maxlength="15" required>
+        <p>Nomor HP/WA :</p>
+        <input type="number" name="no_hp" id="no_hp" maxlength="12" required>
+        <p>Nomor Telp Rumah : </p>
+        <input type="number" name="no_telprumah" id="no_telprumah" maxlength="12" required>
+        <p>Pekerjaan : </p>
+        <input type="text" name="pekerjaan" id="pekerjaan"maxlength="255" required>
+        <p>Alamat : </p>
+        <input type="text" name="alamat" id="alamat" maxlength="552" required>
+        <p>Email : </p>
+        <input type="email" name="email" id="email" required>
+        <br>
+        <br>
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>
