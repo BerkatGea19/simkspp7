@@ -1,7 +1,11 @@
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import MAnggota
 from django.contrib import messages
+import json
+from django.core.serializers import serialize
+from django.db.models.query import QuerySet
+from django.core.serializers.json import DjangoJSONEncoder
 
 # Create your views here.
 def anggota(request):
@@ -27,7 +31,7 @@ def post_anggota(request):
 
     if MAnggota.objects.filter(kode_Anggota=kdanggota).exists():
          messages.error(request, 'NOMOR ANGGOTA SUDAH DIGUNAKAN!')
-         return redirect(request.META.get('HTTP_REFERE','/'))
+         return redirect(request.META.get('HTTP_REFERER','/'))
     else:  
         tambah_anggota=MAnggota(
             kode_Anggota=kdanggota,
@@ -44,3 +48,22 @@ def post_anggota(request):
         tambah_anggota.save()
         messages.success(request, 'BERHASIL TAMBAH ANGGOTA')
     return HttpResponse("Data Anggota telah berhasil disimpan.")
+
+def master_anggota(request):
+    data_anggota = MAnggota.objects.all()
+    # # Serialize the queryset into JSON
+    # serialized_data = serialize('json', data_anggota)
+    
+    # # Convert the serialized data to a Python list
+    # data_list = json.loads(serialized_data)
+
+    # # Convert date fields to string format
+    # for entry in data_list:
+    #     fields = entry['fields']
+    #     fields['Tgl_Lahir'] = fields['Tgl_Lahir']  # format the date as needed
+
+    # return JsonResponse(data_list, safe=False, encoder=DjangoJSONEncoder)
+    context = {
+        'data_anggota' : data_anggota
+    }
+    return render(request, 'master-anggota.html', context)

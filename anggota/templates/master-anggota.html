@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Anggota</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID ANGGOTA</th>
+                <th>NAMA ANGGOTA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for anggota in data_anggota %}
+            <tr>
+                <td>{{ anggota.kode_Anggota }}</td>
+                <td>{{ anggota.Nama_Anggota }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
