@@ -11,6 +11,15 @@
             <tr>
                 <th>ID ANGGOTA</th>
                 <th>NAMA ANGGOTA</th>
+                <th>NIK</th>
+                <th>Tanggal Lahir</th>
+                <th>Agama</th>
+                <th>No.HP</th>
+                <th>No.Telp</th>
+                <th>Pekerjaan</th>
+                <th>Alamat</th>
+                <th>Email</th>
+                <th>ACTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +27,17 @@
             <tr>
                 <td>{{ anggota.kode_Anggota }}</td>
                 <td>{{ anggota.Nama_Anggota }}</td>
+                <td>{{ anggota.Nomor_Induk_Kependudukan}}</td>
+                <td>{{ anggota.Tgl_Lahir}}</td>
+                <td>{{anggota.Agama}}</td>
+                <td>{{ anggota.No_Hp}}</td>
+                <td>{{ anggota.No_Telp_Rumah}}</td>
+                <td>{{ anggota.Pekerjaan}}</td>
+                <td>{{ anggota.Alamat}}</td>
+                <td>{{ anggota.Email}}</td>
+                <td>
+                    <a href="{% url 'update_anggota' anggota.kode_Anggota %}">UPDATE</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

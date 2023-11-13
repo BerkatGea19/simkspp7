@@ -67,3 +67,25 @@ def master_anggota(request):
         'data_anggota' : data_anggota
     }
     return render(request, 'master-anggota.html', context)
+
+def update_anggota(request,kode_Anggota):
+    data_anggota = MAnggota.objects.get(kode_Anggota=kode_Anggota)
+    context = {
+        'data_anggota':data_anggota
+    }
+    return render(request, 'update-anggota.html', context)
+
+def postupdate_anggota(request):
+    kode_Anggota = request.POST['kdanggota']
+    Nama_Anggota = request.POST['Nama_Anggota']
+    Nomor_Induk_Kependudukan = request.POST['Nomor_Induk_Kependudukan']
+    Tgl_Lahir = request.POST['Tgl_Lahir']
+    Agama = request.POST['Agama']
+    No_Hp = request.POST['No_Hp']
+    No_Telp_Rumah = request.POST['No_Telp_Rumah']
+    Pekerjaan = request.POST['Pekerjaan']
+    Alamat = request.POST['Alamat']
+    Email = request.POST['Email']
+
+
+    return redirect(request.META.get('HTTP_REFERER','/'))
