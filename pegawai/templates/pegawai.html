@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koperasi Simpan Pinjam</title>
-</head>
-{% csrf_token %}
-<body>
-    <h1>Ini adalah data pegawai</h1>
-</body>
-</html>
+{% extends "basePegawai.html" %}
+
+{% block title%} Pegawai Records{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <span><a href="/addnew" class="btn btn-primary"></a>Tambah Pegawai Baru</span>
+</div>
+{% endblock content %}

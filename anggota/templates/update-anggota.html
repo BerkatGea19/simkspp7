@@ -13,8 +13,7 @@
             <p>{{ message }}</p>
         {% endfor %}
     {% endif %}
-    <form action="{% url 'postUpdateAnggota' data_anggota.kode_Anggota %}/" method="post">
-
+    <form action="{% url 'postUpdateAnggota'%}" method="post">
         {% csrf_token %}
         <H1>FORM TAMBAH ANGGOTA</H1>
         <P>Kode Anggota : </P>
@@ -40,6 +39,7 @@
         <br>
         <br>
         <button type="submit">SUBMIT</button>
+        <a href="{% url 'masteranggota' %}">KEMBALI</a>
     </form>
 </body>
 </html>

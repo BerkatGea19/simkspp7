@@ -50,7 +50,7 @@ def post_anggota(request):
     return HttpResponse("Data Anggota telah berhasil disimpan.")
 
 def master_anggota(request):
-    data_anggota = MAnggota.objects.all()
+    data_anggota = MAnggota.objects.all().order_by('-kode_Anggota')
     # # Serialize the queryset into JSON
     # serialized_data = serialize('json', data_anggota)
     
@@ -87,5 +87,5 @@ def postupdate_anggota(request):
     Alamat = request.POST['Alamat']
     Email = request.POST['Email']
 
-
-    return redirect(request.META.get('HTTP_REFERER','/'))
+    anggota =MAnggota.objects.get(kode_Anggota=kode_Anggota)
+    return redirect(request.META.get('HTTP_REFERER', '/'))

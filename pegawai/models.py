@@ -6,4 +6,4 @@ class mpegawai(models.Model):
     Nama_Petugas = models.CharField(max_length=100)
 
     class Meta:
-        db_table="tblpegawai"
+        db_table="tblpegawai"  

@@ -8,5 +8,5 @@ urlpatterns = [
     path('post_anggota', views.post_anggota, name="postanggota"),
     path('master_anggota',views.master_anggota, name='masteranggota'),
     path('update_anggota/<str:kode_Anggota>/', views.update_anggota, name='update_anggota'),
-    path('postupdate_anggota/', views.postupdate_anggota, name="postUpdateAnggota"),
+    path('postupdate_anggota/<str:kode_Anggota>/', views.postupdate_anggota, name="postUpdateAnggota"),
 ]  
