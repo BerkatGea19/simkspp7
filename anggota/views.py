@@ -75,17 +75,34 @@ def update_anggota(request,kode_Anggota):
     }
     return render(request, 'update-anggota.html', context)
 
-def postupdate_anggota(request):
+def postupdate_anggota(request,kode_Anggota):
     kode_Anggota = request.POST['kdanggota']
-    Nama_Anggota = request.POST['Nama_Anggota']
-    Nomor_Induk_Kependudukan = request.POST['Nomor_Induk_Kependudukan']
-    Tgl_Lahir = request.POST['Tgl_Lahir']
-    Agama = request.POST['Agama']
-    No_Hp = request.POST['No_Hp']
-    No_Telp_Rumah = request.POST['No_Telp_Rumah']
-    Pekerjaan = request.POST['Pekerjaan']
-    Alamat = request.POST['Alamat']
-    Email = request.POST['Email']
+    Nama_Anggota = request.POST['nmAnggota']
+    Nomor_Induk_Kependudukan = request.POST['nik']
+    Tgl_Lahir = request.POST['tglLahir']
+    Agama = request.POST['agama']
+    No_Hp = request.POST['no_hp']
+    No_Telp_Rumah = request.POST['no_telprumah']
+    Pekerjaan = request.POST['pekerjaan']
+    Alamat = request.POST['alamat']
+    Email = request.POST['email']
 
     anggota =MAnggota.objects.get(kode_Anggota=kode_Anggota)
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+    anggota.kode_Anggota=kode_Anggota
+    anggota.Nama_Anggota=Nama_Anggota
+    anggota.Nomor_Induk_Kependudukan=Nomor_Induk_Kependudukan
+    anggota.Tgl_Lahir=Tgl_Lahir
+    anggota.Agama=Agama
+    anggota.No_Hp=No_Hp
+    anggota.No_Telp_Rumah=No_Telp_Rumah
+    anggota.Pekerjaan=Pekerjaan
+    anggota.Alamat=Alamat
+    anggota.Email=Email
+    anggota.save()
+    messages.success(request, 'BERHASIL UPDATE ANGGOTA')
+    return redirect('masteranggota')
+
+def delete_anggota(request,kode_Anggota):
+    anggota =MAnggota.objects.get(kode_Anggota=kode_Anggota).delete()
+    messages.success(request, 'BERHASIL HAPUS DATA')
+    return redirect('masteranggota')

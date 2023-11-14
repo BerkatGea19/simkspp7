@@ -9,4 +9,5 @@ urlpatterns = [
     path('master_anggota',views.master_anggota, name='masteranggota'),
     path('update_anggota/<str:kode_Anggota>/', views.update_anggota, name='update_anggota'),
     path('postupdate_anggota/<str:kode_Anggota>/', views.postupdate_anggota, name="postUpdateAnggota"),
+    path('delete_anggota/<str:kode_Anggota>/', views.delete_anggota, name="deleteanggota")
 ]  

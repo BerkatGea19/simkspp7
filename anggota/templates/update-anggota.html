@@ -4,7 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
     <title>SIM KSP</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .form-control{
+            width: 40%;
+        }
+        form{
+            
+            margin-left: 35%;
+        }
+    </style>
 </head>
 
 <body>  
@@ -13,33 +30,54 @@
             <p>{{ message }}</p>
         {% endfor %}
     {% endif %}
-    <form action="{% url 'postUpdateAnggota'%}" method="post">
+    <form action="{% url 'postUpdateAnggota' data_anggota.kode_Anggota %}" method="post">
         {% csrf_token %}
-        <H1>FORM TAMBAH ANGGOTA</H1>
-        <P>Kode Anggota : </P>
-        <input type="text" name="kdanggota" id="kdanggota" maxlength="7" value="{{ data_anggota.kode_Anggota}}"readonly required>
-        <p>Nama Anggota : </p>
-        <input type="text" name="nmAnggota" id="nmAnggota"maxlength="255" value="{{ data_anggota.Nama_Anggota}}" required>
-        <p>Nomor Induk Kependudukan : </p>
-        <input type="text" name="nik" id="nik"maxlength="16" value="{{ data_anggota.Nomor_Induk_Kependudukan}}" required>
-        <p>Tanggal Lahir : </p>
-        <input type="date" name="tglLahir" id="tglLahir" value="{{data_anggota.Tgl_Lahir}}" required>
-        <p>Agama : </p>
-        <input type="text" name="agama" id="agama"maxlength="15" value="{{ data_anggota.Agama}}" required>
-        <p>Nomor HP/WA :</p>
-        <input type="number" name="no_hp" id="no_hp" maxlength="12" value="{{ data_anggota.No_Hp}}" required>
-        <p>Nomor Telp Rumah : </p>
-        <input type="number" name="no_telprumah" id="no_telprumah" maxlength="12" value="{{ data_anggota.No_Telp_Rumah}}" required>
-        <p>Pekerjaan : </p>
-        <input type="text" name="pekerjaan" id="pekerjaan"maxlength="255" value="{{ data_anggota.Pekerjaan}}" required>
-        <p>Alamat : </p>
-        <input type="text" name="alamat" id="alamat" maxlength="552"value="{{data_anggota.Alamat}}" required>
-        <p>Email : </p>
-        <input type="email" name="email" id="email" value="{{data_anggota.Email}}" required>
+        <H1>FORM UPDATE ANGGOTA</H1>
+        <div class="form-group">
+        <label>Kode Anggota : </label>
+        <input class="form-control" type="text" name="kdanggota" id="kdanggota" maxlength="7" value="{{ data_anggota.kode_Anggota}}"readonly required>
+        </div>
+        <div class="form-group">
+        <label>Nama Anggota : </label>
+        <input class="form-control" type="text" name="nmAnggota" id="nmAnggota"maxlength="255" value="{{ data_anggota.Nama_Anggota}}" required>
+        </div>
+        <div class="form-group">
+        <label>Nomor Induk Kependudukan : </label>
+        <input class="form-control" type="text" name="nik" id="nik"maxlength="16" value="{{ data_anggota.Nomor_Induk_Kependudukan}}" required>
+        </div>
+        <div class="form-group">
+        <label>Tanggal Lahir : </label>
+        <input class="form-control" type="date" name="tglLahir" id="tglLahir" value="{{data_anggota.Tgl_Lahir|date:"Y-m-d"}}" required>
+        </div>
+        <div class="form-group">
+        <label>Agama : </label>
+        <input class="form-control" type="text" name="agama" id="agama"maxlength="15" value="{{ data_anggota.Agama}}" required>
+        </div>
+        <div class="form-group">
+        <label>Nomor HP/WA :</label>
+        <input class="form-control" type="number" name="no_hp" id="no_hp" maxlength="12" value="{{ data_anggota.No_Hp}}" required>
+        </div>
+        <div class="form-group">
+        <label>Nomor Telp Rumah : </label>
+        <input class="form-control" type="number" name="no_telprumah" id="no_telprumah" maxlength="12" value="{{ data_anggota.No_Telp_Rumah}}" required>
+        </div>
+        <div class="form-group">
+        <label>Pekerjaan : </label>
+        <input class="form-control" type="text" name="pekerjaan" id="pekerjaan"maxlength="255" value="{{ data_anggota.Pekerjaan}}" required>
+        </div>
+        <div class="form-group">
+        <label>Alamat : </label>
+        <input class="form-control" type="text" name="alamat" id="alamat" maxlength="552"value="{{data_anggota.Alamat}}" required>
+        </div>
+        <div class="form-group">
+        <label>Email : </label>
+        <input class="form-control" type="email" name="email" id="email" value="{{data_anggota.Email}}" required>
+        </div>
         <br>
-        <br>
-        <button type="submit">SUBMIT</button>
+        <button type="submit" class="btn btn-primary">UBAH</button>
         <a href="{% url 'masteranggota' %}">KEMBALI</a>
     </form>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
