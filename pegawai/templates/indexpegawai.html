@@ -1,0 +1,28 @@
+{% extends "basePegawai.html" %}
+
+{% block title%}Tambah Pegawai baru Records{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="{% url 'tambahpegawai' %}">
+        {% csrf_token %}
+        <div class="container">
+            <div class="col-12">
+                <h3>Masukkan Detail</h3>
+            </div>
+
+            <div class="mb-3">
+                <label>Kode Petugas :</label>
+                {{ form.Kode_Petugas}}
+            </div>
+            <div class="mb-3">
+                <label>Nama Petugas :</label>
+                {{ form.Nama_Petugas}}
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

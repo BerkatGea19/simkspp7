@@ -103,6 +103,6 @@ def postupdate_anggota(request,kode_Anggota):
     return redirect('masteranggota')
 
 def delete_anggota(request,kode_Anggota):
-    anggota =MAnggota.objects.get(kode_Anggota=kode_Anggota).delete()
+    pegawai =MAnggota.objects.get(kode_Anggota=kode_Anggota).delete()
     messages.success(request, 'BERHASIL HAPUS DATA')
     return redirect('masteranggota')

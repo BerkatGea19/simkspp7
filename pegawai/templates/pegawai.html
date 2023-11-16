@@ -4,6 +4,34 @@
 
 {% block content %}
 <div class="col-md-12">
-    <span><a href="/addnew" class="btn btn-primary"></a>Tambah Pegawai Baru</span>
+    <span><a href="{% url 'tambahpegawai' %}" class="btn btn-primary">Tambah Pegawai Baru</a></span>
+    <div class="table-responsive">
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th><input type="checkbox" id="checkall" /></th>
+                <th>Kode Petugas</th>
+                <th>Nama Petugas</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for pegawai in pegawai %}
+                <tr>
+                    <td><input type="checkbox" class="checkthis" /></td>
+                    <td>{{pegawai.Kode_Petugas}}</td>
+                    <td>{{pegawai.Nama_Petugas}}</td>
+                    <td><a href="{% url  'edit' pegawai.Kode_Petugas %}" class="btn btn-primary">Edit</a></td>
+                    <td><a href="{% url  'destroy' pegawai.Kode_Petugas %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary">KEMBALI</a>
+    </div>
 </div>
 {% endblock content %}
