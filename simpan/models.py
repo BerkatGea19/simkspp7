@@ -12,4 +12,4 @@ class mstabungan(models.Model):
     Status_Aktif = models.CharField(max_length=255)  
 
     class Meta:
-        db_table = "MasterTabungan"
+        db_table = "MsTabungan"
