@@ -3,6 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 def blog(request):
     context = {
-        'name':'About Us',
+        'name':'SIM KSP',
     }
-    return render(request, 'blog.html', context)
+    return render(request, 'blog/blog.html', context)
