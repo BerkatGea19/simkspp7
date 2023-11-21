@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'dashboard',
     'pegawai',
     'anggota',
-    'simpan',
     'pinjam',
 ]
 

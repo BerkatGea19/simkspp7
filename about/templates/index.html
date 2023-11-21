@@ -1,31 +1,29 @@
-{%extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
+
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIM KSP</title>
-</head>
-
-<body>
     <style>
         body {
-            /* background-image: url("{% static 'img/Home.jpg'%}"); */
             background-color: blue;
         }
     </style>
-    {%block content%}
-    <br>
-    <div class="alert alert-success" role="alert">
+</head>
 
-        <h4 class="alert-heading">{{name}}</h4>
-        <p>Koperasi simpan pinjam adalah koperasi yang fokus pada kegiatan simpan pinjam uang kepada anggota koperasi.
-            Kegiatan simpan pinjam ini dilakukan dengan tujuan untuk membantu memenuhi kebutuhan modal bagi anggota
-            koperasi yang membutuhkan.</p>
-        <hr>
-        <p class="mb-0">Kekayaan tidak muncul karena banyaknya harta, tapi karena sedikitnya keinginan.</p>
-    </div>
-    {%endblock content%}
+<body>
+    {% block content %}
+    <h3>SELAMAT DATANG</h3>
+    <h1>APLIKASI KOPERASI SIMPAN PINJAM</h1>
+    <p>This is the content specific to the Home Page.</p>
+
+    
+    {% endblock content %}
+
 </body>
-
 
 </html>
