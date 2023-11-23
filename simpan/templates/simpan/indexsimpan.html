@@ -1,0 +1,59 @@
+{% extends "simpan/base.html" %}
+{% block title %}Edit Simpanan{% endblock title %}
+
+{% block content%}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="{% url 'posttambah' %}">
+        {% csrf_token %}
+        <div class="container">
+            <div class="col-12">
+                <h3>Tambah data simpanan anggota</h3>
+            </div>
+            <div class="mb-3">
+                <label>Nomor Rekening Tabungan :</label>
+                <input type="text" class="form-control" name="nrt" id="nrt_nrt" required maxlength="16">
+            </div>
+            <div class="mb-3">
+                <label>Jenis Tabungan :</label>
+                <select class="form-select" name="jt" id="jt_jt">
+                    <option disabled selected>Pilih</option>
+                    <option value="Simpanan Wajib">Simpanan Wajib</option>
+                    <option value="Simpanan Pokok">Simpanan Pokok</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Kode Anggota:</label>
+                <input type="text" class="form-control" name="ka" id="ka_ka" required maxlength="7">
+            </div>
+            <div class="mb-3">
+                <label>Tanggal Pembukaan Rekening :</label>
+                <input type="date" class="form-control" name="tpr" id="tpr_tpr" required>
+            </div>
+            <div class="mb-3">
+                <label>Jenis Bunga :</label>
+                <select class="form-select" name="jb" id="jb_jb">
+                    <option disabled selected>Pilih</option>
+                    <option value="Bunga Flat">Bunga Flat</option>
+                    <option value="Bunga Menurun">Bunga Menurun</option>
+                    <option value="Bunga Menurun Efektif">Bunga Menurun Efektif </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Prosentase Bunga :</label>
+                <input type="text" class="form-control" name="pb" id="pb_pb" required maxlength="255">
+            </div>
+            <div class="mb-3">
+                <label>Status Aktif :</label>
+                <select class="form-select" name="sa" id="sa_sa">
+                    <option disabled selected>Pilih</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tidak Aktif">Tidak Aktif</option>  
+                </select>   
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success btn-lg">SIMPAN</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "simpan/base.html" %}
+{% load static %}
+{% block title %}Menu Simpan{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <span><a href="{% url 'tambahsimpan' %}" class="btn btn-primary">Tambah Simpanan Anggota</a></span>
+    <div class="table-responsive">
+        <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th><input type="checkbox" id="checkall" /></th>
+                <th>No. Rekening Tabungan</th>
+                <th>Jenis Tabungan</th>
+                <th>Kode Anggota</th>
+                <th>Tgl Pembukaan Rekening</th>
+                <th>Jenis Bunga</th>
+                <th>Prosentase Bunga</th>
+                <th>Status Aktif</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for simpan in simpan %}
+                <tr>
+                    <td><input type="checkbox" class="checkthis" /></td>
+                    <td>{{ simpan.No_Rek_Tabungan }}</td>
+                    <td>{{ simpan.Jenis_Tabungan }}</td>
+                    <td>{{ simpan.Kode_Anggota }}</td>
+                    <td>{{ simpan.Tanggal_Pembukaan_Rekening }}</td>
+                    <td>{{ simpan.Jenis_Bunga }}</td>
+                    <td>{{ simpan.Prosentase_Bunga }}</td>
+                    <td>{{ simpan.Status_Aktif }}</td>
+                    <td>
+                        <a href="{% url 'edit' simpan.No_Rek_Tabungan %}" class="btn btn-primary">Edit</a>
+                    </td>
+                    <td><a href="{% url 'destroy' simpan.No_Rek_Tabungan %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'dashboard' %}" class="btn btn-primary">KEMBALI</a>
+    </div>
+</div>
+{% endblock content %}

@@ -12,4 +12,5 @@ urlpatterns = [
     path('pegawai/', include('pegawai.urls')),
     path('anggota/', include('anggota.urls')),
     path('pinjam/', include('pinjam.urls')),
+    path('simpan/', include('simpan.urls')),
 ]
